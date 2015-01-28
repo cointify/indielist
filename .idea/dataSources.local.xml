@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Indielist DB" uuid="6d3b85fb-898a-4d51-b010-f46950aa8039">
+      <secret-storage>master_key</secret-storage>
+      <user-name>jsingh</user-name>
+      <schema-pattern>indielist.public</schema-pattern>
+      <default-schemas>indielist.public</default-schemas>
+    </data-source>
+  </component>
+</project>
