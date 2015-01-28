@@ -1,0 +1,29 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="indielist">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <jta-data-source>java:jboss/datasources/indielist</jta-data-source>
+
+        <!--entity classes to be listed here-->
+        <class>com.indielist.domain.User</class>
+        <class>com.indielist.domain.Ad</class>
+        <class>com.indielist.domain.Category</class>
+        <class>com.indielist.domain.Role</class>
+        <class>com.indielist.domain.Address</class>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+            <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+            <property name="hibernate.archive.autodetection" value="class, hbm" />
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,27 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+    
+    <http use-expressions="true">
+        <form-login login-page="/login" default-target-url="/index"
+                    authentication-success-handler-ref="customAuthenticationSuccessHandler"
+                authentication-failure-url="/login?error"/>
+        <logout logout-success-url="/login?logout"/>
+        <intercept-url pattern="/admin/**" access="hasAnyRole('ROLE_ADMINISTRATOR')"/>
+        <intercept-url pattern="/user/**" access="hasAnyRole('ROLE_ADMINISTRATOR', 'ROLE_USER')"/>
+        <intercept-url pattern="/**" access="permitAll"/>
+    </http>
+    
+    <beans:bean name="customAuthenticationProvider" class="com.indielist.security.CustomAuthenticationProvider"/>
+    <beans:bean name="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <beans:bean name="customAuthenticationSuccessHandler" class="com.indielist.security.CustomAuthenticationSuccessHandler"/>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="customAuthenticationProvider" />
+    </authentication-manager>
+
+</beans:beans>

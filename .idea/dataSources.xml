@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="169495642">
+    <data-source source="LOCAL" name="Indielist DB" uuid="6d3b85fb-898a-4d51-b010-f46950aa8039">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/indielist</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

@@ -1,12 +1,43 @@
-apply plugin: 'java'
+apply plugin: 'war'
 
-sourceCompatibility = 1.5
-version = '1.0'
-
+sourceCompatibility = 1.8
+//version = '1.0'
+war {
+    baseName = "ROOT"
+}
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile project(':common')
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-oxm:$springVersion"
+    compile "org.springframework:spring-test:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-core:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    
+    compile "javax.validation:validation-api:1.1.0.Final"
+    compile "org.hibernate:hibernate-validator:5.1.3.Final"
+
+    compile "org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE"
+    compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE"
+    
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final'
+    
+    compile "org.apache.logging.log4j:log4j-api:$log4jVersion"
+    compile "org.apache.logging.log4j:log4j-core:$log4jVersion"
+    
+    compile "com.fasterxml.jackson.core:jackson-core:$jacksonCore"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabind"
+
+    compile "postgresql:postgresql:$postgresqlDriverVersion"
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
